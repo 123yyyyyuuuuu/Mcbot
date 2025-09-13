@@ -4,7 +4,7 @@ const mineflayer = require('mineflayer');
 const bot = mineflayer.createBot({
   host: 'oeae123666.aternos.me',  // عنوان السيرفر
   port: 25171,        // منفذ السيرفر
-  username: 'mineglass', // اسم البوت
+  username: 'MineMaster', // اسم البوت
   password: '',        // كلمة المرور إذا كنت تستخدم حسابًا مدفوعًا
 });
 
