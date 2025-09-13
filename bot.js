@@ -1,27 +1,23 @@
-const mineflayer = require('mineflayer');
+const mineflayer = require('mineflayer')
 
 const bot = mineflayer.createBot({
-  host: 'oeae123666.aternos.me', // عنوان السيرفر
-  port: 25171, // المنفذ
-  username: 'MineScout', // اسم البوت
-  password: '', // كلمة المرور (إذا كانت مطلوبة)
-});
+  host: 'oeae123666.aternos.me',       // عنوان السيرفر أو IP
+  port: 25171,             // بورت السيرفر
+  username: 'MineScout',     // اسم الحساب (أو الايميل/username للحسابات المضمّنة)
+  // password: 'password', // إذا السيرفر في online-mode، فكّر بإضافة كلمة المرور أو استخدام authentication
+})
 
-// محاولة إعادة الاتصال في حالة الخطأ
-bot.on('error', (err) => {
-  console.log('حدث خطأ: ', err);
-  setTimeout(() => {
-    console.log('إعادة محاولة الاتصال...');
-    bot.quit(); // قطع الاتصال الحالي
-    bot.connect(); // إعادة الاتصال
-  }, 5000); // المحاولة بعد 5 ثوانٍ
-});
+bot.on('spawn', () => {
+  console.log('البوت ظهر في العالم!')
+  bot.chat('مرحبا! أنا بوت')
+})
 
-// محاولة إعادة الاتصال عند قطع الاتصال
-bot.on('end', () => {
-  console.log('تم قطع الاتصال');
-  setTimeout(() => {
-    console.log('إعادة محاولة الاتصال...');
-    bot.connect(); // إعادة الاتصال
-  }, 5000); // المحاولة بعد 5 ثوانٍ
-});
+bot.on('chat', (username, message) => {
+  if (username === bot.username) return
+  if (message === 'مرحبا' || message === 'hi') {
+    bot.chat(`أهلاً، ${username}!`)
+  }
+})
+
+bot.on('error', err => console.log('خطأ:', err))
+bot.on('end', () => console.log('البوت انقطع الاتصال'))
