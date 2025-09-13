@@ -1,4 +1,4 @@
-name:Bot
+name: Bot
 
 # تعريف الأحداث التي ستشغل الـ workflow
 on:
