@@ -4,7 +4,7 @@ const mineflayer = require('mineflayer');
 const bot = mineflayer.createBot({
   host: 'oeae123666.aternos.me', // عنوان السيرفر الخاص بك
   port: 25171,                   // المنفذ الافتراضي (إذا كان مختلفًا تحقق من لوحة التحكم)
-  username: '34Bo21t',           // اسم البوت
+  username: '3Bo21t',           // اسم البوت
   password: '',                  // كلمة المرور (إذا كانت مطلوبة)
 });
 
