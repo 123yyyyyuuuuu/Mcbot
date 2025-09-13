@@ -1,31 +1,27 @@
 const mineflayer = require('mineflayer');
 
-// إعدادات البوت
 const bot = mineflayer.createBot({
-  host: 'oeae123666.aternos.me', // عنوان السيرفر الخاص بك
-  port: 25171,                   // المنفذ الافتراضي (إذا كان مختلفًا تحقق من لوحة التحكم)
-  username: '3Bo21t',           // اسم البوت
-  password: '',                  // كلمة المرور (إذا كانت مطلوبة)
+  host: 'oeae123666.aternos.me', // عنوان السيرفر
+  port: 25171, // المنفذ
+  username: 'MineScout', // اسم البوت
+  password: '', // كلمة المرور (إذا كانت مطلوبة)
 });
 
-// حدث عند الاتصال
-bot.on('spawn', () => {
-  console.log('تم اتصال البوت!');
-});
-
-// حدث عند حدوث خطأ
+// محاولة إعادة الاتصال في حالة الخطأ
 bot.on('error', (err) => {
   console.log('حدث خطأ: ', err);
+  setTimeout(() => {
+    console.log('إعادة محاولة الاتصال...');
+    bot.quit(); // قطع الاتصال الحالي
+    bot.connect(); // إعادة الاتصال
+  }, 5000); // المحاولة بعد 5 ثوانٍ
 });
 
-// حدث عند حدوث قطع الاتصال
+// محاولة إعادة الاتصال عند قطع الاتصال
 bot.on('end', () => {
   console.log('تم قطع الاتصال');
-});
-
-// حدث عند تلقي رسالة في الدردشة
-bot.on('chat', (username, message) => {
-  if (message === 'ping') {
-    bot.chat('pong');
-  }
+  setTimeout(() => {
+    console.log('إعادة محاولة الاتصال...');
+    bot.connect(); // إعادة الاتصال
+  }, 5000); // المحاولة بعد 5 ثوانٍ
 });
