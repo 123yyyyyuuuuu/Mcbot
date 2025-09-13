@@ -1,30 +1,31 @@
 const mineflayer = require('mineflayer');
 
-// Create the bot
+// إعدادات البوت
 const bot = mineflayer.createBot({
-  host: 'oeae123666.aternos.me', // Change to your server IP or 'localhost'
-  port: 25171,        // Default Minecraft port
-  username: 'happyoe' // Bot username
+  host: 'oeae123666.aternos.me',  // عنوان السيرفر
+  port: 25171,        // منفذ السيرفر
+  username: 'BotName', // اسم البوت
+  password: '',        // كلمة المرور إذا كنت تستخدم حسابًا مدفوعًا
 });
 
-// When the bot logs in
-bot.on('login', () => {
-  console.log('Bot has logged in!');
-  bot.chat('Hello everyone!');
+// حدث عند الاتصال
+bot.on('spawn', () => {
+  console.log('تم اتصال البوت!');
 });
 
-// When the bot receives a message
+// حدث عند حدوث خطأ
+bot.on('error', (err) => {
+  console.log('حدث خطأ: ', err);
+});
+
+// حدث عند حدوث قطع الاتصال
+bot.on('end', () => {
+  console.log('تم قطع الاتصال');
+});
+
+// حدث عند تلقي رسالة في الدردشة
 bot.on('chat', (username, message) => {
-  if (username === bot.username) return;
-
-  console.log(`<${username}> ${message}`);
-
-  // Bot responds to "hello"
-  if (message === 'hello') {
-    bot.chat(`Hi ${username}!`);
+  if (message === 'ping') {
+    bot.chat('pong');
   }
 });
-
-// Error handling
-bot.on('error', err => console.log('Error:', err));
-bot.on('end', () => console.log('Bot has been disconnected'));
