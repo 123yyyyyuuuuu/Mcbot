@@ -2,10 +2,10 @@ const mineflayer = require('mineflayer');
 
 // إعدادات البوت
 const bot = mineflayer.createBot({
-  host: 'oeae123666.aternos.me',  // عنوان السيرفر
-  port: 25171,        // منفذ السيرفر
-  username: 'RedstoneRover', // اسم البوت
-  password: '',        // كلمة المرور إذا كنت تستخدم حسابًا مدفوعًا
+  host: 'oeae123666.aternos.me', // عنوان السيرفر الخاص بك
+  port: 25171,                   // المنفذ الافتراضي (إذا كان مختلفًا تحقق من لوحة التحكم)
+  username: '34Bo21t',           // اسم البوت
+  password: '',                  // كلمة المرور (إذا كانت مطلوبة)
 });
 
 // حدث عند الاتصال
