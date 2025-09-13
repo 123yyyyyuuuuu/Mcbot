@@ -1,4 +1,4 @@
-name: Minecraft Bot CI
+name: Minecraft Bot
 
 # تعريف الأحداث التي ستشغل الـ workflow
 on:
