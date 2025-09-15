@@ -4,7 +4,8 @@ const bot = mineflayer.createBot({
   host: 'oeae123666.aternos.me', // عنوان السيرفر
   port: 25171,                   // البورت
   username: 'MineScout',         // اسم الحساب (بدون كلمة مرور لأن السيرفر offline)
-  version: 1.21.8
+  // password: 'password',       // فقط إذا كان السيرفر في online-mode
+  version: '1.19.4'              // نسخة الماينكرافت (غيّرها حسب نسخة سيرفرك)
 });
 
 bot.on('spawn', () => {
