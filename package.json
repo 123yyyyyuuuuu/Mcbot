@@ -1,14 +1,15 @@
 {
   "name": "minecraft-bot",
   "version": "1.0.0",
-  "description": "Minecraft Bot using mineflayer",
+  "description": "A simple Minecraft bot built with mineflayer.",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
   },
+  "keywords": ["minecraft", "bot", "mineflayer", "automation"],
+  "author": "اسمك هنا",
+  "license": "ISC",
   "dependencies": {
     "mineflayer": "^3.10.0"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }
